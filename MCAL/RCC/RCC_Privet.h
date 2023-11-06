@@ -8,7 +8,7 @@
 #ifndef RCC_PRIVET_H_
 #define RCC_PRIVET_H_
 
-#include "../../Libraries/type.h"
+#include "type.h"
 
 /* Register Definitions  */
 typedef struct {
@@ -208,63 +208,109 @@ typedef struct {
 #define    FSMC_RCC         8
 #define    SDIO_RCC         10
 //---------------------------------------------------------------------------------
-typedef struct {
-	volatile u8 AFIOEN :1;
-	volatile u8 :1;
-	volatile u8 IOPAEN :1;
-	volatile u8 IOPBEN :1;
-	volatile u8 IOPCEN :1;
-	volatile u8 IOPDEN :1;
-	volatile u8 IOPEEN :1;
-	volatile u8 IOPFEN :1;
-	volatile u8 IOPGEN :1;
-	volatile u8 ADC1EN :1;
-	volatile u8 ADC2EN :1;
-	volatile u8 TIM1EN :1;
-	volatile u8 SPI1EN :1;
-	volatile u8 TIM8EN :1;
-	volatile u8 USART1EN :1;
-	volatile u8 ADC3EN :1;
-	volatile u8 :3;
-	volatile u8 TIM5EN :1;
-	volatile u8 TIM10EN :1;
-	volatile u8 TIM11EN :1;
-	volatile u16 :10;
-} APB2ENR;
-#define RCC_APB2ENR_REG       ((volatile APB2ENR*)0x40021018)
+//typedef struct {
+//	volatile u8 AFIOEN :1;
+//	volatile u8 :1;
+//	volatile u8 IOPAEN :1;
+//	volatile u8 IOPBEN :1;
+//	volatile u8 IOPCEN :1;
+//	volatile u8 IOPDEN :1;
+//	volatile u8 IOPEEN :1;
+//	volatile u8 IOPFEN :1;
+//	volatile u8 IOPGEN :1;
+//	volatile u8 ADC1EN :1;
+//	volatile u8 ADC2EN :1;
+//	volatile u8 TIM1EN :1;
+//	volatile u8 SPI1EN :1;
+//	volatile u8 TIM8EN :1;
+//	volatile u8 USART1EN :1;
+//	volatile u8 ADC3EN :1;
+//	volatile u8 :3;
+//	volatile u8 TIM5EN :1;
+//	volatile u8 TIM10EN :1;
+//	volatile u8 TIM11EN :1;
+//	volatile u16 :10;
+//} APB2ENR;
+
+
+#define    AFIO_RCC         0
+#define    GPIOA_RCC        2
+#define    GPIOB_RCC        3
+#define    GPIOC_RCC        4
+#define    GPIOD_RCC        5
+#define    GPIOE_RCC        6
+#define    GPIOF_RCC        7
+#define    GPIOG_RCC        8
+#define    ADC1_RCC         9
+#define    ADC2_RCC         10
+#define    TIM1_RCC         11
+#define    SPI1_RCC         12
+#define    TIM8_RCC         13
+#define    USART1_RCC       14
+#define    ADC3_RCC         15
+#define    TIM9_RCC         19
+#define    TIM10_RCC        20
+#define    TIM11_RCC        21
+
+#define RCC_APB2ENR_REG       *((volatile u32*)0x40021018)
 //----------------------------------------------------------------------
-typedef struct {
-	volatile u8 TIM2EN :1;
-	volatile u8 TIM3EN :1;
-	volatile u8 TIM4EN :1;
-	volatile u8 TIM5EN :1;
-	volatile u8 TIM6EN :1;
-	volatile u8 TIM7EN :1;
-	volatile u8 TIN12EN :1;
-	volatile u8 TIM13EN :1;
-	volatile u8 TIM14EN :1;
-	volatile u8 :2;
-	volatile u8 WWDGEN :1;
-	volatile u8 :2;
-	volatile u8 SPI2EN :1;
-	volatile u8 SPI3EN :1;
-	volatile u8 :1;
-	volatile u8 USART2EN :1;
-	volatile u8 USART3EN :1;
-	volatile u8 USART4EN :1;
-	volatile u8 USART5EN :1;
-	volatile u8 I2C1EN :1;
-	volatile u8 I2C2EN :1;
-	volatile u8 USBEN :1;
-	volatile u8 :1;
-	volatile u8 CANEN :1;
-	volatile u8 :1;
-	volatile u8 BKPEN :1;
-	volatile u8 PWREN :1;
-	volatile u8 DACEN :1;
-	volatile u8 :2;
-} APB1ENR;
-#define RCC_APB1ENR_REG       ((volatile APB1ENR*)0x4002101C)
+//typedef struct {
+//	volatile u8 TIM2EN :1;
+//	volatile u8 TIM3EN :1;
+//	volatile u8 TIM4EN :1;
+//	volatile u8 TIM5EN :1;
+//	volatile u8 TIM6EN :1;
+//	volatile u8 TIM7EN :1;
+//	volatile u8 TIN12EN :1;
+//	volatile u8 TIM13EN :1;
+//	volatile u8 TIM14EN :1;
+//	volatile u8 :2;
+//	volatile u8 WWDGEN :1;
+//	volatile u8 :2;
+//	volatile u8 SPI2EN :1;
+//	volatile u8 SPI3EN :1;
+//	volatile u8 :1;
+//	volatile u8 USART2EN :1;
+//	volatile u8 USART3EN :1;
+//	volatile u8 USART4EN :1;
+//	volatile u8 USART5EN :1;
+//	volatile u8 I2C1EN :1;
+//	volatile u8 I2C2EN :1;
+//	volatile u8 USBEN :1;
+//	volatile u8 :1;
+//	volatile u8 CANEN :1;
+//	volatile u8 :1;
+//	volatile u8 BKPEN :1;
+//	volatile u8 PWREN :1;
+//	volatile u8 DACEN :1;
+//	volatile u8 :2;
+//} APB1ENR;
+
+
+#define    TIM2_RCC         0
+#define    TIM3_RCC         1
+#define    TIM4_RCC         2
+#define    TIM5_RCC         3
+#define    TIM6_RCC         4
+#define    TIM7_RCC         5
+#define    TIM12_RCC        6
+#define    TIM13_RCC        7
+#define    TIM14_RCC        8
+#define    WWDG_RCC         11
+#define    SPI2_RCC         14
+#define    SPI3_RCC         15
+#define    USART2_RCC       17
+#define    USART3_RCC       18
+#define    UART4_RCC        19
+#define    UART5_RCC        20
+#define    I2C1_RCC         21
+#define    I2C2_RCC         22
+#define    USB_RCC          23
+#define    CAN_RCC          25
+#define    BKP_RCC          27
+#define    PWR_RCC          28
+#define    DAC_RCC          29
+#define RCC_APB1ENR_REG       *((volatile u32*)0x4002101C)
 //-------------------------------------------------------------------------------------
 
 typedef struct {

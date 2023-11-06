@@ -8,7 +8,8 @@
 #include "RCC_CONFIG.h"
 #include "RCC_Interface.h"
 
-
+#include "bit math.h"
+#include "type.h"
 
  void RCC_VidInit( void ){
 
@@ -145,14 +146,42 @@
  void RCC_VidEnablePeripheralClock( u8 Copy_u8PeripheralBus , u8 Copy_u8Peripheral ){
 
 
-	 SET_BIT( Copy_u8PeripheralBus , Copy_u8Peripheral );
+	 switch( Copy_u8PeripheralBus ){
+
+	 			case AHB_BUS  :
+	 				SET_BIT( RCC_AHBENR_REG  , Copy_u8Peripheral );
+	 				break;
+	 			case APB1_BUS :
+	 				SET_BIT(RCC_APB1ENR_REG, Copy_u8Peripheral );
+	 				break;
+	 			case APB2_BUS :
+	 				SET_BIT( RCC_APB2ENR_REG, Copy_u8Peripheral );
+	 				break;
+
+	 		}
+
+
+
 
 
 
 }
-void MRCC_VidDisablePeripheralClock( u8 Copy_u8PeripheralBus , u8 Copy_u8Peripheral ){
+void RCC_VidDisablePeripheralClock( u8 Copy_u8PeripheralBus , u8 Copy_u8Peripheral ){
 
-	CLR_BIT( Copy_u8PeripheralBus , Copy_u8Peripheral );
+	switch( Copy_u8PeripheralBus ){
+
+		 			case AHB_BUS  :
+		 				CLEAR_BIT( RCC_AHBENR_REG  , Copy_u8Peripheral );
+		 				break;
+		 			case APB1_BUS :
+		 				CLEAR_BIT(RCC_APB1ENR_REG, Copy_u8Peripheral );
+		 				break;
+		 			case APB2_BUS :
+		 				CLEAR_BIT( RCC_APB2ENR_REG, Copy_u8Peripheral );
+		 				break;
+
+		 		}
+
 
 		}
 
